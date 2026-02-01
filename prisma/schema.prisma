@@ -1,0 +1,217 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// USER & AUTHENTICATION
+// ============================================
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  role          UserRole  @default(STAFF)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  accounts           Account[]
+  sessions           Session[]
+  contentEdits       ContentBlock[] @relation("EditedBy")
+  testimonialReviews Testimonial[]  @relation("ReviewedBy")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+enum UserRole {
+  ADMIN
+  STAFF
+}
+
+// ============================================
+// CMS CONTENT BLOCKS
+// ============================================
+
+model ContentBlock {
+  id          String      @id @default(cuid())
+  key         String      @unique // e.g., "home.hero.title", "about.mission"
+  title       String // Human-readable name for admin
+  content     String      @db.Text // The actual content (supports markdown)
+  contentType ContentType @default(TEXT)
+  page        String // Which page this belongs to
+  section     String // Section within the page
+  sortOrder   Int         @default(0)
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  lastEditedBy   User?    @relation("EditedBy", fields: [lastEditedById], references: [id])
+  lastEditedById String?
+
+  @@index([page])
+  @@index([key])
+}
+
+enum ContentType {
+  TEXT
+  MARKDOWN
+  HTML
+}
+
+// ============================================
+// TESTIMONIALS / CLIENT STORIES
+// ============================================
+
+model Testimonial {
+  id String @id @default(cuid())
+
+  // Submitted content
+  clientName     String? // Optional - can be anonymous
+  clientEmail    String? // For follow-up (not displayed)
+  clientInitials String? // For semi-anonymous display
+  story          String  @db.Text
+
+  // Image attachment (Google Drive)
+  imageFileId String? // Google Drive file ID
+  imageUrl    String? // Public URL for display
+  imageAlt    String?
+
+  // Permissions granted by client
+  shareOnWebsite    Boolean @default(false)
+  shareOnFacebook   Boolean @default(false)
+  shareInNewsletter Boolean @default(false)
+
+  // Moderation
+  status       TestimonialStatus @default(PENDING)
+  reviewedAt   DateTime?
+  reviewedBy   User?             @relation("ReviewedBy", fields: [reviewedById], references: [id])
+  reviewedById String?
+  reviewNotes  String? // Internal notes for staff
+
+  // Display settings (set by staff after approval)
+  displayName String? // What name to show publicly
+  featured    Boolean @default(false)
+  sortOrder   Int     @default(0)
+
+  // Tracking
+  submittedAt DateTime  @default(now())
+  publishedAt DateTime?
+
+  @@index([status])
+  @@index([shareOnWebsite, status])
+}
+
+enum TestimonialStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  ARCHIVED
+}
+
+// ============================================
+// MEDIA / SLIDESHOW
+// ============================================
+
+model SlideshowImage {
+  id String @id @default(cuid())
+
+  // Google Drive reference
+  fileId  String // Google Drive file ID
+  imageUrl String // Public URL for display
+
+  altText String // Accessibility - required
+  caption String? // Optional caption overlay
+  linkUrl String? // Optional click destination
+
+  isActive  Boolean @default(true)
+  sortOrder Int     @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([isActive, sortOrder])
+}
+
+// ============================================
+// RESOURCES (External Links)
+// ============================================
+
+model Resource {
+  id String @id @default(cuid())
+
+  name        String // Resource name
+  description String? @db.Text // Description of the resource
+  url         String // External URL
+  category    String // Category for grouping (e.g., "Government", "Food", "Housing")
+
+  isActive  Boolean @default(true)
+  sortOrder Int     @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([category])
+  @@index([isActive])
+}
+
+// ============================================
+// SITE SETTINGS
+// ============================================
+
+model SiteSetting {
+  id          String      @id @default(cuid())
+  key         String      @unique
+  value       String      @db.Text
+  description String? // Help text for admin
+  valueType   SettingType @default(STRING)
+
+  updatedAt DateTime @updatedAt
+
+  @@index([key])
+}
+
+enum SettingType {
+  STRING
+  URL
+  EMAIL
+  BOOLEAN
+  JSON
+}
