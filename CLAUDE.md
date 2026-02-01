@@ -30,14 +30,12 @@ npx prisma migrate dev   # Create migration in development
 npx prisma migrate deploy # Apply migrations (production)
 
 # Build
-npm run build            # Build for production (also runs migrations via postbuild)
-npm run start            # Start production server
+npm run build            # Build for production (runs prisma generate)
+npm run start            # Start production server (runs migrations first)
 npm run lint             # Run ESLint
 
-# Railway
-railway up               # Deploy to Railway
-railway logs             # View deployment logs
-railway variables        # View/manage environment variables
+# Deployment
+git push                 # Triggers Railway auto-deploy via GitHub
 ```
 
 ## Architecture
@@ -105,8 +103,9 @@ GOOGLE_DRIVE_FOLDER_ID    # Shared Drive folder for uploads
 ## Railway Configuration
 
 - **Project**: zonal-gratitude
-- **Services**: Next.js app + PostgreSQL database
-- **Account**: itsupport@mesamadisonva.org
+- **Services**: mesa-website (Next.js) + Postgres-NJGS (PostgreSQL)
+- **GitHub**: itsupport-mesa/mesa-website (auto-deploys on push)
+- **URL**: https://mesa-website-production.up.railway.app
 
 ## Key Implementation Notes
 
