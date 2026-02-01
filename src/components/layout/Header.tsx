@@ -11,6 +11,7 @@ const navigation = [
   { name: "Food Pantry", href: "/food-pantry" },
   { name: "Emergency Services", href: "/emergency-services" },
   { name: "Resources", href: "/resources" },
+  { name: "Stories", href: "/stories" },
   { name: "Volunteer & Donate", href: "/volunteer-donate" },
   { name: "Contact", href: "/contact" },
 ];

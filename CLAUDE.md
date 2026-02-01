@@ -107,6 +107,15 @@ GOOGLE_DRIVE_FOLDER_ID    # Shared Drive folder for uploads
 - **GitHub**: itsupport-mesa/mesa-website (auto-deploys on push)
 - **URL**: https://mesa-website-production.up.railway.app
 
+## Google Cloud Configuration
+
+- **Project**: mesa-website-admin-sso (ID: `980641008142`)
+- **OAuth Client**: "MESA Website" - Web application credentials
+- **Authorized Redirect URIs**:
+  - `http://localhost:3000/api/auth/callback/google`
+  - `https://mesa-website-production.up.railway.app/api/auth/callback/google`
+- **Console**: https://console.cloud.google.com/apis/credentials?project=mesa-website-admin-sso
+
 ## Key Implementation Notes
 
 - **Testimonial photos**: Max 5 MB, stored in Google Drive `/testimonials` subfolder
