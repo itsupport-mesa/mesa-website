@@ -101,7 +101,7 @@ export function TestimonialList({
             onClick={() => setActiveTab(tab.id)}
             className={`flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
               activeTab === tab.id
-                ? "bg-mesa-green-50 text-mesa-green-700"
+                ? "bg-mesa-blue-50 text-mesa-blue-700"
                 : "bg-white text-gray-600 hover:bg-gray-50"
             }`}
           >
@@ -109,7 +109,7 @@ export function TestimonialList({
             {tab.label}
             <span
               className={`rounded-full px-2 py-0.5 text-xs ${
-                activeTab === tab.id ? "bg-mesa-green-100" : "bg-gray-100"
+                activeTab === tab.id ? "bg-mesa-blue-100" : "bg-gray-100"
               }`}
             >
               {tab.count}
@@ -137,8 +137,8 @@ export function TestimonialList({
               >
                 <div className="flex items-center justify-between p-4">
                   <div className="flex items-center gap-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-mesa-green-100">
-                      <span className="text-sm font-medium text-mesa-green-700">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-mesa-blue-100">
+                      <span className="text-sm font-medium text-mesa-blue-700">
                         {testimonial.clientInitials || "?"}
                       </span>
                     </div>
@@ -157,7 +157,7 @@ export function TestimonialList({
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => setSelectedTestimonial(testimonial)}
-                      className="flex items-center gap-2 rounded-lg bg-mesa-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-mesa-green-700"
+                      className="flex items-center gap-2 rounded-lg bg-mesa-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-mesa-blue-700"
                     >
                       <Eye className="h-4 w-4" />
                       {activeTab === "pending" ? "Review" : "View"}
@@ -192,7 +192,7 @@ export function TestimonialList({
                         </span>
                       )}
                       {testimonial.imageUrl && (
-                        <span className="text-mesa-green-600">Has photo</span>
+                        <span className="text-mesa-blue-600">Has photo</span>
                       )}
                     </div>
                   </div>

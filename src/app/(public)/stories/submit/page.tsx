@@ -11,12 +11,12 @@ export default function SubmitStoryPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-mesa-green-700 to-mesa-green-900 text-white">
+      <section className="bg-gradient-to-br from-mesa-blue-700 to-mesa-blue-900 text-white">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
             Share Your Story
           </h1>
-          <p className="mt-4 max-w-2xl text-xl text-mesa-green-100">
+          <p className="mt-4 max-w-2xl text-xl text-mesa-blue-100">
             Help us inspire others by sharing how MESA has helped you
           </p>
         </div>
@@ -55,7 +55,7 @@ export default function SubmitStoryPage() {
               us at{" "}
               <a
                 href="mailto:info@mesamadisonva.org"
-                className="text-mesa-green-600 hover:text-mesa-green-700"
+                className="text-mesa-blue-600 hover:text-mesa-blue-700"
               >
                 info@mesamadisonva.org
               </a>

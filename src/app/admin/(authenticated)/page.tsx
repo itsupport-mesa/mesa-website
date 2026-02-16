@@ -142,13 +142,13 @@ export default async function AdminDashboard() {
                 className={`rounded-lg p-3 ${
                   card.highlight
                     ? "bg-mesa-orange-100 text-mesa-orange-600"
-                    : "bg-mesa-green-50 text-mesa-green-600"
+                    : "bg-mesa-blue-50 text-mesa-blue-600"
                 }`}
               >
                 <card.icon className="h-6 w-6" />
               </div>
             </div>
-            <div className="mt-4 flex items-center text-sm font-medium text-mesa-green-600 group-hover:text-mesa-green-700">
+            <div className="mt-4 flex items-center text-sm font-medium text-mesa-blue-600 group-hover:text-mesa-blue-700">
               View details
               <ArrowRight className="ml-1 h-4 w-4" />
             </div>
@@ -170,8 +170,8 @@ export default async function AdminDashboard() {
                     href={`/admin/testimonials?id=${testimonial.id}`}
                     className="flex items-center gap-4 px-6 py-4 hover:bg-gray-50"
                   >
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-mesa-green-100">
-                      <span className="text-sm font-medium text-mesa-green-700">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-mesa-blue-100">
+                      <span className="text-sm font-medium text-mesa-blue-700">
                         {testimonial.clientInitials || "?"}
                       </span>
                     </div>
@@ -202,21 +202,21 @@ export default async function AdminDashboard() {
             href="/admin/testimonials"
             className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
           >
-            <MessageSquare className="h-5 w-5 text-mesa-green-600" />
+            <MessageSquare className="h-5 w-5 text-mesa-blue-600" />
             Review Testimonials
           </Link>
           <Link
             href="/admin/content"
             className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
           >
-            <FileText className="h-5 w-5 text-mesa-green-600" />
+            <FileText className="h-5 w-5 text-mesa-blue-600" />
             Edit Page Content
           </Link>
           <Link
             href="/admin/slideshow"
             className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
           >
-            <Images className="h-5 w-5 text-mesa-green-600" />
+            <Images className="h-5 w-5 text-mesa-blue-600" />
             Manage Slideshow
           </Link>
           <Link
@@ -224,7 +224,7 @@ export default async function AdminDashboard() {
             target="_blank"
             className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
           >
-            <ArrowRight className="h-5 w-5 text-mesa-green-600" />
+            <ArrowRight className="h-5 w-5 text-mesa-blue-600" />
             View Live Site
           </Link>
         </div>

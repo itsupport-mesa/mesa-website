@@ -39,10 +39,10 @@ export function AdminSidebar({ userRole }: AdminSidebarProps) {
   return (
     <aside className="fixed inset-y-0 left-0 z-50 hidden w-64 overflow-y-auto border-r border-gray-200 bg-white lg:block">
       <div className="flex h-16 items-center gap-2 border-b border-gray-200 px-6">
-        <Link href="/" className="text-xl font-bold text-mesa-green-700">
+        <Link href="/" className="text-xl font-bold text-mesa-blue-700">
           MESA
         </Link>
-        <span className="rounded bg-mesa-green-100 px-2 py-0.5 text-xs font-medium text-mesa-green-700">
+        <span className="rounded bg-mesa-blue-100 px-2 py-0.5 text-xs font-medium text-mesa-blue-700">
           Admin
         </span>
       </div>
@@ -60,7 +60,7 @@ export function AdminSidebar({ userRole }: AdminSidebarProps) {
               href={item.href}
               className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                 isActive
-                  ? "bg-mesa-green-50 text-mesa-green-700"
+                  ? "bg-mesa-blue-50 text-mesa-blue-700"
                   : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
               }`}
             >

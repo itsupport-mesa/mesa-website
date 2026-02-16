@@ -33,12 +33,12 @@ export default async function StoriesPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-mesa-green-700 to-mesa-green-900 text-white">
+      <section className="bg-gradient-to-br from-mesa-blue-700 to-mesa-blue-900 text-white">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
             Client Stories
           </h1>
-          <p className="mt-4 max-w-2xl text-xl text-mesa-green-100">
+          <p className="mt-4 max-w-2xl text-xl text-mesa-blue-100">
             Real stories from our Madison County neighbors
           </p>
         </div>
@@ -81,12 +81,12 @@ export default async function StoriesPage() {
                       </div>
                     )}
                     <div className="flex-1">
-                      <Quote className="h-8 w-8 text-mesa-green-200" />
+                      <Quote className="h-8 w-8 text-mesa-blue-200" />
                       <blockquote className="mt-4 text-gray-600">
                         {testimonial.story}
                       </blockquote>
                       <footer className="mt-4">
-                        <p className="font-medium text-mesa-green-700">
+                        <p className="font-medium text-mesa-blue-700">
                           — {testimonial.displayName || testimonial.clientInitials || "A grateful neighbor"}
                         </p>
                       </footer>
@@ -97,7 +97,7 @@ export default async function StoriesPage() {
             </div>
           ) : (
             <div className="text-center">
-              <Quote className="mx-auto h-16 w-16 text-mesa-green-200" />
+              <Quote className="mx-auto h-16 w-16 text-mesa-blue-200" />
               <p className="mt-6 text-lg text-gray-600">
                 We&apos;re collecting stories from the community. Check back
                 soon to read about how MESA has helped our neighbors.
@@ -108,18 +108,18 @@ export default async function StoriesPage() {
       </section>
 
       {/* CTA to submit */}
-      <section className="bg-mesa-green-700 py-12">
+      <section className="bg-mesa-blue-700 py-12">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-white">
             Has MESA Helped You?
           </h2>
-          <p className="mt-2 text-mesa-green-100">
+          <p className="mt-2 text-mesa-blue-100">
             Your story could inspire others and help us spread the word about
             our services.
           </p>
           <Link
             href="/stories/submit"
-            className="mt-6 inline-block rounded-md bg-white px-8 py-3 text-lg font-semibold text-mesa-green-700 hover:bg-mesa-green-50"
+            className="mt-6 inline-block rounded-md bg-white px-8 py-3 text-lg font-semibold text-mesa-blue-700 hover:bg-mesa-blue-50"
           >
             Share Your Story
           </Link>

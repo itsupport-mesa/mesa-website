@@ -71,7 +71,7 @@ export function TestimonialForm() {
         </p>
         <button
           onClick={() => router.push("/stories")}
-          className="mt-6 rounded-md bg-mesa-green-700 px-6 py-3 text-white hover:bg-mesa-green-800"
+          className="mt-6 rounded-md bg-mesa-blue-700 px-6 py-3 text-white hover:bg-mesa-blue-800"
         >
           View Stories
         </button>
@@ -108,7 +108,7 @@ export function TestimonialForm() {
           maxLength={2000}
           value={formData.story}
           onChange={(e) => setFormData({ ...formData, story: e.target.value })}
-          className="mt-2 block w-full rounded-md border border-gray-300 px-4 py-3 shadow-sm focus:border-mesa-green-500 focus:ring-mesa-green-500"
+          className="mt-2 block w-full rounded-md border border-gray-300 px-4 py-3 shadow-sm focus:border-mesa-blue-500 focus:ring-mesa-blue-500"
           placeholder="When I came to MESA, I was facing..."
         />
         <p className="mt-1 text-sm text-gray-500">
@@ -136,7 +136,7 @@ export function TestimonialForm() {
           onChange={(e) =>
             setFormData({ ...formData, clientName: e.target.value })
           }
-          className="mt-2 block w-full rounded-md border border-gray-300 px-4 py-3 shadow-sm focus:border-mesa-green-500 focus:ring-mesa-green-500"
+          className="mt-2 block w-full rounded-md border border-gray-300 px-4 py-3 shadow-sm focus:border-mesa-blue-500 focus:ring-mesa-blue-500"
           placeholder="John D. or Anonymous"
         />
       </div>
@@ -161,7 +161,7 @@ export function TestimonialForm() {
           onChange={(e) =>
             setFormData({ ...formData, clientEmail: e.target.value })
           }
-          className="mt-2 block w-full rounded-md border border-gray-300 px-4 py-3 shadow-sm focus:border-mesa-green-500 focus:ring-mesa-green-500"
+          className="mt-2 block w-full rounded-md border border-gray-300 px-4 py-3 shadow-sm focus:border-mesa-blue-500 focus:ring-mesa-blue-500"
           placeholder="email@example.com"
         />
       </div>
@@ -183,7 +183,7 @@ export function TestimonialForm() {
               onChange={(e) =>
                 setFormData({ ...formData, shareOnWebsite: e.target.checked })
               }
-              className="mt-1 h-4 w-4 rounded border-gray-300 text-mesa-green-600 focus:ring-mesa-green-500"
+              className="mt-1 h-4 w-4 rounded border-gray-300 text-mesa-blue-600 focus:ring-mesa-blue-500"
             />
             <span className="text-gray-600">
               <strong>On MESA&apos;s website</strong> — Your story may appear on
@@ -197,7 +197,7 @@ export function TestimonialForm() {
               onChange={(e) =>
                 setFormData({ ...formData, shareOnFacebook: e.target.checked })
               }
-              className="mt-1 h-4 w-4 rounded border-gray-300 text-mesa-green-600 focus:ring-mesa-green-500"
+              className="mt-1 h-4 w-4 rounded border-gray-300 text-mesa-blue-600 focus:ring-mesa-blue-500"
             />
             <span className="text-gray-600">
               <strong>On MESA&apos;s Facebook page</strong> — Your story may be
@@ -214,7 +214,7 @@ export function TestimonialForm() {
                   shareInNewsletter: e.target.checked,
                 })
               }
-              className="mt-1 h-4 w-4 rounded border-gray-300 text-mesa-green-600 focus:ring-mesa-green-500"
+              className="mt-1 h-4 w-4 rounded border-gray-300 text-mesa-blue-600 focus:ring-mesa-blue-500"
             />
             <span className="text-gray-600">
               <strong>In MESA&apos;s newsletter</strong> — Your story may appear
@@ -234,7 +234,7 @@ export function TestimonialForm() {
             onChange={(e) =>
               setFormData({ ...formData, consent: e.target.checked })
             }
-            className="mt-1 h-4 w-4 rounded border-gray-300 text-mesa-green-600 focus:ring-mesa-green-500"
+            className="mt-1 h-4 w-4 rounded border-gray-300 text-mesa-blue-600 focus:ring-mesa-blue-500"
           />
           <span className="text-gray-600">
             <strong>I confirm</strong> that this story is true and accurate, and
@@ -249,7 +249,7 @@ export function TestimonialForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full rounded-md bg-mesa-green-700 px-6 py-3 text-lg font-semibold text-white hover:bg-mesa-green-800 disabled:cursor-not-allowed disabled:bg-gray-400"
+        className="w-full rounded-md bg-mesa-blue-700 px-6 py-3 text-lg font-semibold text-white hover:bg-mesa-blue-800 disabled:cursor-not-allowed disabled:bg-gray-400"
       >
         {isSubmitting ? (
           <span className="flex items-center justify-center gap-2">

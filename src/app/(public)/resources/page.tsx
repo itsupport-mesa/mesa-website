@@ -68,6 +68,12 @@ export default async function ResourcesPage() {
           url: "https://www.brafb.org/",
         },
         {
+          name: "Find a Local Pantry",
+          description:
+            "Use the Blue Ridge Area Food Bank's food finder to locate a pantry near you",
+          url: "https://foodfinder.brafb.org/",
+        },
+        {
           name: "USDA Food and Nutrition Service",
           description: "Federal food assistance programs information",
           url: "https://www.fns.usda.gov/",
@@ -112,12 +118,12 @@ export default async function ResourcesPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-mesa-green-700 to-mesa-green-900 text-white">
+      <section className="bg-gradient-to-br from-mesa-blue-700 to-mesa-blue-900 text-white">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
             Community Resources
           </h1>
-          <p className="mt-4 max-w-2xl text-xl text-mesa-green-100">
+          <p className="mt-4 max-w-2xl text-xl text-mesa-blue-100">
             Additional support services available to Madison County residents
           </p>
         </div>
@@ -149,7 +155,7 @@ export default async function ResourcesPage() {
                       key={resource.id}
                       className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
                     >
-                      <h3 className="text-lg font-semibold text-mesa-green-700">
+                      <h3 className="text-lg font-semibold text-mesa-blue-700">
                         {resource.name}
                       </h3>
                       {resource.description && (
@@ -163,7 +169,7 @@ export default async function ResourcesPage() {
                             href={resource.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-1 text-mesa-green-600 hover:text-mesa-green-700"
+                            className="flex items-center gap-1 text-mesa-blue-600 hover:text-mesa-blue-700"
                           >
                             <ExternalLink className="h-4 w-4" />
                             Website
@@ -193,7 +199,7 @@ export default async function ResourcesPage() {
                     key={resource.name}
                     className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
                   >
-                    <h3 className="text-lg font-semibold text-mesa-green-700">
+                    <h3 className="text-lg font-semibold text-mesa-blue-700">
                       {resource.name}
                     </h3>
                     <p className="mt-2 text-gray-600">{resource.description}</p>
@@ -201,7 +207,7 @@ export default async function ResourcesPage() {
                       {resource.phone && (
                         <a
                           href={`tel:${resource.phone}`}
-                          className="flex items-center gap-1 text-mesa-green-600 hover:text-mesa-green-700"
+                          className="flex items-center gap-1 text-mesa-blue-600 hover:text-mesa-blue-700"
                         >
                           <Phone className="h-4 w-4" />
                           {resource.phone}
@@ -212,7 +218,7 @@ export default async function ResourcesPage() {
                           href={resource.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-1 text-mesa-green-600 hover:text-mesa-green-700"
+                          className="flex items-center gap-1 text-mesa-blue-600 hover:text-mesa-blue-700"
                         >
                           <Globe className="h-4 w-4" />
                           Website
@@ -228,7 +234,7 @@ export default async function ResourcesPage() {
       </section>
 
       {/* Need Help */}
-      <section className="bg-mesa-green-50 py-12">
+      <section className="bg-mesa-blue-50 py-12">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900">
             Not Sure Where to Start?
@@ -240,7 +246,7 @@ export default async function ResourcesPage() {
           </p>
           <a
             href="tel:540-948-4427"
-            className="mt-6 inline-block rounded-md bg-mesa-green-700 px-6 py-3 text-white hover:bg-mesa-green-800"
+            className="mt-6 inline-block rounded-md bg-mesa-blue-700 px-6 py-3 text-white hover:bg-mesa-blue-800"
           >
             Call 540-948-4427
           </a>

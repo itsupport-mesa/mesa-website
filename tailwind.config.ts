@@ -43,22 +43,22 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // MESA brand colors
+        // MESA brand colors (navy palette matching mesamadisonva.org)
         mesa: {
-          green: {
-            50: "#f0fdf4",
-            100: "#dcfce7",
-            200: "#bbf7d0",
-            300: "#86efac",
-            400: "#4ade80",
-            500: "#22c55e",
-            600: "#16a34a",
-            700: "#15803d",
-            800: "#166534",
-            900: "#14532d",
+          blue: {
+            50: "#f0f4f9",
+            100: "#dce4ef",
+            200: "#b9c9df",
+            300: "#8ea8c8",
+            400: "#6383a8",
+            500: "#4a6490",
+            600: "#3b4f78",
+            700: "#2B3A67",
+            800: "#232f52",
+            900: "#1a2340",
           },
           gold: "#d4a853",
-          cream: "#faf9f6",
+          cream: "#EDEDE3",
         },
       },
       borderRadius: {

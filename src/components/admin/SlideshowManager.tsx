@@ -105,7 +105,7 @@ export function SlideshowManager({ images: initialImages }: SlideshowManagerProp
       <div className="mb-6">
         <button
           onClick={() => setShowAddForm(!showAddForm)}
-          className="flex items-center gap-2 rounded-lg bg-mesa-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-mesa-green-700"
+          className="flex items-center gap-2 rounded-lg bg-mesa-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-mesa-blue-700"
         >
           <Plus className="h-4 w-4" />
           Add Image
@@ -132,7 +132,7 @@ export function SlideshowManager({ images: initialImages }: SlideshowManagerProp
                   setNewImage((prev) => ({ ...prev, imageUrl: e.target.value }))
                 }
                 placeholder="https://drive.google.com/..."
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-mesa-green-500 focus:outline-none focus:ring-1 focus:ring-mesa-green-500"
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-mesa-blue-500 focus:outline-none focus:ring-1 focus:ring-mesa-blue-500"
               />
               <p className="mt-1 text-xs text-gray-500">
                 Enter the Google Drive direct link or any public image URL
@@ -150,7 +150,7 @@ export function SlideshowManager({ images: initialImages }: SlideshowManagerProp
                   setNewImage((prev) => ({ ...prev, altText: e.target.value }))
                 }
                 placeholder="Describe the image for accessibility"
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-mesa-green-500 focus:outline-none focus:ring-1 focus:ring-mesa-green-500"
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-mesa-blue-500 focus:outline-none focus:ring-1 focus:ring-mesa-blue-500"
               />
             </div>
             <div>
@@ -164,7 +164,7 @@ export function SlideshowManager({ images: initialImages }: SlideshowManagerProp
                   setNewImage((prev) => ({ ...prev, caption: e.target.value }))
                 }
                 placeholder="Optional caption overlay"
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-mesa-green-500 focus:outline-none focus:ring-1 focus:ring-mesa-green-500"
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-mesa-blue-500 focus:outline-none focus:ring-1 focus:ring-mesa-blue-500"
               />
             </div>
             <div>
@@ -178,7 +178,7 @@ export function SlideshowManager({ images: initialImages }: SlideshowManagerProp
                   setNewImage((prev) => ({ ...prev, linkUrl: e.target.value }))
                 }
                 placeholder="URL to link to when clicked"
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-mesa-green-500 focus:outline-none focus:ring-1 focus:ring-mesa-green-500"
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-mesa-blue-500 focus:outline-none focus:ring-1 focus:ring-mesa-blue-500"
               />
             </div>
           </div>
@@ -193,7 +193,7 @@ export function SlideshowManager({ images: initialImages }: SlideshowManagerProp
             <button
               type="submit"
               disabled={saving}
-              className="rounded-lg bg-mesa-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-mesa-green-700 disabled:opacity-50"
+              className="rounded-lg bg-mesa-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-mesa-blue-700 disabled:opacity-50"
             >
               {saving ? "Adding..." : "Add Image"}
             </button>

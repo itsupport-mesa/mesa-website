@@ -1,8 +1,8 @@
 import { Metadata } from "next";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Newspaper } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Let\u2019s Stay Connected!",
   description:
     "Contact MESA or visit us at 927 Orange Road, Madison, VA. Get directions, hours, and contact information.",
 };
@@ -11,14 +11,47 @@ export default function ContactPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-mesa-green-700 to-mesa-green-900 text-white">
+      <section className="bg-gradient-to-br from-mesa-blue-700 to-mesa-blue-900 text-white">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            Contact Us
+            Let&apos;s Stay Connected!
           </h1>
-          <p className="mt-4 max-w-2xl text-xl text-mesa-green-100">
+          <p className="mt-4 max-w-2xl text-xl text-mesa-blue-100">
             We&apos;re here to help. Reach out or visit us today.
           </p>
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="bg-mesa-cream py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="flex items-center justify-center gap-3">
+              <Newspaper className="h-7 w-7 text-mesa-blue-600" />
+              <h2 className="text-2xl font-bold text-gray-900">
+                Subscribe to &ldquo;Around The Table With MESA&rdquo;
+              </h2>
+            </div>
+            <p className="mt-4 text-lg text-gray-600">
+              Register to stay informed about our forthcoming events, recent
+              fundraising initiatives, and additional updates. As we approach
+              the conclusion of the year, anticipate numerous regular updates
+              from &ldquo;Around The Table With MESA.&rdquo;
+            </p>
+            {/* TODO: Add newsletter signup link when available */}
+            <p className="mt-4 text-sm text-gray-500">
+              Newsletter signup coming soon. Follow us on{" "}
+              <a
+                href="https://www.facebook.com/MesaMadisonCountyVA/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-mesa-blue-600 hover:text-mesa-blue-700"
+              >
+                Facebook
+              </a>{" "}
+              for the latest updates.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -33,8 +66,8 @@ export default function ContactPage() {
               <div className="mt-8 space-y-6">
                 {/* Address */}
                 <div className="flex gap-4">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-mesa-green-100">
-                    <MapPin className="h-6 w-6 text-mesa-green-600" />
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-mesa-blue-100">
+                    <MapPin className="h-6 w-6 text-mesa-blue-600" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">Address</h3>
@@ -47,7 +80,7 @@ export default function ContactPage() {
                       href="https://maps.google.com/?q=927+Orange+Road+Madison+VA+22731"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-2 inline-block text-mesa-green-600 hover:text-mesa-green-700"
+                      className="mt-2 inline-block text-mesa-blue-600 hover:text-mesa-blue-700"
                     >
                       Get Directions &rarr;
                     </a>
@@ -56,15 +89,15 @@ export default function ContactPage() {
 
                 {/* Phone */}
                 <div className="flex gap-4">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-mesa-green-100">
-                    <Phone className="h-6 w-6 text-mesa-green-600" />
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-mesa-blue-100">
+                    <Phone className="h-6 w-6 text-mesa-blue-600" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">Phone</h3>
                     <p className="mt-1">
                       <a
                         href="tel:540-948-4427"
-                        className="text-gray-600 hover:text-mesa-green-600"
+                        className="text-gray-600 hover:text-mesa-blue-600"
                       >
                         540-948-4427
                       </a>
@@ -74,26 +107,36 @@ export default function ContactPage() {
 
                 {/* Email */}
                 <div className="flex gap-4">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-mesa-green-100">
-                    <Mail className="h-6 w-6 text-mesa-green-600" />
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-mesa-blue-100">
+                    <Mail className="h-6 w-6 text-mesa-blue-600" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">Email</h3>
-                    <p className="mt-1">
-                      <a
-                        href="mailto:info@mesamadisonva.org"
-                        className="text-gray-600 hover:text-mesa-green-600"
-                      >
-                        info@mesamadisonva.org
-                      </a>
-                    </p>
+                    <div className="mt-1 space-y-1">
+                      <p>
+                        <a
+                          href="mailto:info@mesamadisonva.org"
+                          className="text-gray-600 hover:text-mesa-blue-600"
+                        >
+                          info@mesamadisonva.org
+                        </a>
+                      </p>
+                      <p>
+                        <a
+                          href="mailto:operationsmanager@mesamadisonva.org"
+                          className="text-gray-600 hover:text-mesa-blue-600"
+                        >
+                          operationsmanager@mesamadisonva.org
+                        </a>
+                      </p>
+                    </div>
                   </div>
                 </div>
 
                 {/* Hours */}
                 <div className="flex gap-4">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-mesa-green-100">
-                    <Clock className="h-6 w-6 text-mesa-green-600" />
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-mesa-blue-100">
+                    <Clock className="h-6 w-6 text-mesa-blue-600" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">
@@ -105,9 +148,13 @@ export default function ContactPage() {
                       <li>Wednesday Evening: 6:00 - 7:30 PM</li>
                       <li>Saturday: 10:00 AM - 12:00 PM</li>
                     </ul>
-                    <p className="mt-2 text-sm text-gray-500">
-                      Emergency services by appointment. Call to schedule.
-                    </p>
+                    <h3 className="mt-4 font-semibold text-gray-900">
+                      Client Services Hours
+                    </h3>
+                    <ul className="mt-1 space-y-1 text-gray-600">
+                      <li>Monday: 10:00 AM - 1:00 PM</li>
+                      <li>Thursday: 10:00 AM - 1:00 PM</li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -137,7 +184,7 @@ export default function ContactPage() {
           <h2 className="text-2xl font-bold text-gray-900">Directions</h2>
           <div className="mt-6 grid gap-8 md:grid-cols-2">
             <div>
-              <h3 className="font-semibold text-mesa-green-700">
+              <h3 className="font-semibold text-mesa-blue-700">
                 From Madison (Town Center)
               </h3>
               <p className="mt-2 text-gray-600">
@@ -147,7 +194,7 @@ export default function ContactPage() {
               </p>
             </div>
             <div>
-              <h3 className="font-semibold text-mesa-green-700">
+              <h3 className="font-semibold text-mesa-blue-700">
                 From Orange
               </h3>
               <p className="mt-2 text-gray-600">

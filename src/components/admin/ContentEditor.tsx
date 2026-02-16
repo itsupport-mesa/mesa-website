@@ -89,7 +89,7 @@ export function ContentEditor({ contentByPage }: ContentEditorProps) {
               onClick={() => setActivePage(page)}
               className={`w-full rounded-lg px-3 py-2 text-left text-sm font-medium transition-colors ${
                 activePage === page
-                  ? "bg-mesa-green-50 text-mesa-green-700"
+                  ? "bg-mesa-blue-50 text-mesa-blue-700"
                   : "text-gray-600 hover:bg-gray-50"
               }`}
             >
@@ -133,7 +133,7 @@ export function ContentEditor({ contentByPage }: ContentEditorProps) {
                     disabled={isSaving || (!hasChanges && !error)}
                     className={`flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                       hasChanges
-                        ? "bg-mesa-green-600 text-white hover:bg-mesa-green-700"
+                        ? "bg-mesa-blue-600 text-white hover:bg-mesa-blue-700"
                         : "bg-gray-100 text-gray-400"
                     } disabled:cursor-not-allowed`}
                   >
@@ -155,14 +155,14 @@ export function ContentEditor({ contentByPage }: ContentEditorProps) {
                   value={currentContent}
                   onChange={(e) => handleContentChange(block.id, e.target.value)}
                   rows={8}
-                  className="w-full rounded-lg border border-gray-300 px-4 py-3 font-mono text-sm focus:border-mesa-green-500 focus:outline-none focus:ring-1 focus:ring-mesa-green-500"
+                  className="w-full rounded-lg border border-gray-300 px-4 py-3 font-mono text-sm focus:border-mesa-blue-500 focus:outline-none focus:ring-1 focus:ring-mesa-blue-500"
                 />
               ) : (
                 <input
                   type="text"
                   value={currentContent}
                   onChange={(e) => handleContentChange(block.id, e.target.value)}
-                  className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-mesa-green-500 focus:outline-none focus:ring-1 focus:ring-mesa-green-500"
+                  className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-mesa-blue-500 focus:outline-none focus:ring-1 focus:ring-mesa-blue-500"
                 />
               )}
 

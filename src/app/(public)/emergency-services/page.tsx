@@ -1,25 +1,24 @@
 import { Metadata } from "next";
-import Link from "next/link";
-import { Phone, FileText, HelpCircle } from "lucide-react";
+import { Phone, FileText, HelpCircle, Clock, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Emergency Services",
+  title: "Client Services",
   description:
-    "MESA provides emergency financial assistance for electric bills, rent, fuel, medical expenses, and other urgent needs to Madison County residents.",
+    "MESA offers crisis support through our Client Services program to assist with unforeseen emergencies including utility bills, rent, and repairs for Madison County residents.",
 };
 
 export default function EmergencyServicesPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-mesa-green-700 to-mesa-green-900 text-white">
+      <section className="bg-gradient-to-br from-mesa-blue-700 to-mesa-blue-900 text-white">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            Emergency Services
+            Client Services
           </h1>
-          <p className="mt-4 max-w-2xl text-xl text-mesa-green-100">
-            Financial assistance for Madison County residents facing urgent
-            needs
+          <p className="mt-4 max-w-2xl text-xl text-mesa-blue-100">
+            Crisis support for Madison County residents facing unforeseen
+            emergencies
           </p>
         </div>
       </section>
@@ -31,32 +30,82 @@ export default function EmergencyServicesPage() {
             <h2 className="text-3xl font-bold text-gray-900">How We Help</h2>
             <div className="mt-6 space-y-4 text-lg text-gray-600">
               <p>
-                Life can present unexpected challenges. MESA provides emergency
-                financial assistance on a case-by-case basis to help Madison
-                County residents navigate difficult times and regain stability.
-              </p>
-              <p>
-                Our goal is not just to provide temporary relief, but to empower
-                our neighbors to overcome obstacles and build a path toward
-                self-sufficiency.
+                MESA offers crisis support through our Client Services program
+                to assist with unforeseen emergencies. Assistance provided
+                includes support with utility bills, rent or mortgage payments,
+                and repairs; information regarding local resources; and referrals
+                to community programs. Currently, we serve residents of Madison
+                County in need of assistance.
               </p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Hours & Contact */}
+      <section className="bg-mesa-cream py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="rounded-xl bg-white p-6 shadow-sm">
+              <div className="flex items-center gap-3">
+                <Clock className="h-6 w-6 text-mesa-blue-600" />
+                <h2 className="text-xl font-semibold text-gray-900">
+                  Client Services Hours
+                </h2>
+              </div>
+              <ul className="mt-4 space-y-2 text-gray-600">
+                <li className="flex justify-between">
+                  <span>Monday</span>
+                  <span>10:00 AM - 1:00 PM</span>
+                </li>
+                <li className="flex justify-between">
+                  <span>Thursday</span>
+                  <span>10:00 AM - 1:00 PM</span>
+                </li>
+              </ul>
+            </div>
+            <div className="rounded-xl bg-white p-6 shadow-sm">
+              <div className="flex items-center gap-3">
+                <Mail className="h-6 w-6 text-mesa-blue-600" />
+                <h2 className="text-xl font-semibold text-gray-900">
+                  Contact Client Services
+                </h2>
+              </div>
+              <div className="mt-4 space-y-2 text-gray-600">
+                <p>
+                  <a
+                    href="tel:540-948-4427"
+                    className="hover:text-mesa-blue-600"
+                  >
+                    540-948-4427
+                  </a>
+                </p>
+                <p>
+                  <a
+                    href="mailto:operationsmanager@mesamadisonva.org"
+                    className="hover:text-mesa-blue-600"
+                  >
+                    operationsmanager@mesamadisonva.org
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Types of Assistance */}
-      <section className="bg-mesa-cream py-16">
+      <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-3xl font-bold text-gray-900">
-            Types of Emergency Assistance
+            Types of Assistance
           </h2>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                title: "Electric Bills",
+                title: "Utility Bills",
                 description:
-                  "Help with past-due electric bills to prevent disconnection",
+                  "Help with past-due electric, water, and other utility bills to prevent disconnection",
               },
               {
                 title: "Rent & Mortgage",
@@ -64,19 +113,19 @@ export default function EmergencyServicesPage() {
                   "Assistance with housing payments during financial hardship",
               },
               {
-                title: "Heating Fuel",
+                title: "Repairs",
                 description:
-                  "Support for heating oil, propane, or other fuel costs",
+                  "Support for essential home or vehicle repairs",
               },
               {
-                title: "Medical Expenses",
+                title: "Local Resources",
                 description:
-                  "Help with prescription costs and medical bills",
+                  "Information regarding local resources available to Madison County residents",
               },
               {
-                title: "Vehicle Repair",
+                title: "Community Referrals",
                 description:
-                  "Assistance with essential car repairs for transportation to work",
+                  "Referrals to community programs that can provide additional support",
               },
               {
                 title: "Other Urgent Needs",
@@ -88,7 +137,7 @@ export default function EmergencyServicesPage() {
                 key={item.title}
                 className="rounded-xl bg-white p-6 shadow-sm"
               >
-                <h3 className="text-xl font-semibold text-mesa-green-700">
+                <h3 className="text-xl font-semibold text-mesa-blue-700">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-gray-600">{item.description}</p>
@@ -99,13 +148,25 @@ export default function EmergencyServicesPage() {
       </section>
 
       {/* How to Apply */}
-      <section className="py-16">
+      <section className="bg-mesa-blue-50 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900">How to Apply</h2>
+          <p className="mt-4 max-w-3xl text-lg text-gray-600">
+            Kindly complete the Client Services Application online and email a
+            copy of the bill requesting services to{" "}
+            <a
+              href="mailto:operationsmanager@mesamadisonva.org"
+              className="text-mesa-blue-600 hover:text-mesa-blue-700"
+            >
+              operationsmanager@mesamadisonva.org
+            </a>
+            , or visit the MESA Building during Client Services hours on Mondays
+            and Thursdays from 10:00 AM to 1:00 PM.
+          </p>
           <div className="mt-8 grid gap-8 md:grid-cols-3">
             {/* Step 1 */}
             <div className="flex gap-4">
-              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-mesa-green-700 text-white">
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-mesa-blue-700 text-white">
                 <Phone className="h-5 w-5" />
               </div>
               <div>
@@ -114,9 +175,16 @@ export default function EmergencyServicesPage() {
                   Call{" "}
                   <a
                     href="tel:540-948-4427"
-                    className="text-mesa-green-600 hover:text-mesa-green-700"
+                    className="text-mesa-blue-600 hover:text-mesa-blue-700"
                   >
                     540-948-4427
+                  </a>{" "}
+                  or email{" "}
+                  <a
+                    href="mailto:operationsmanager@mesamadisonva.org"
+                    className="text-mesa-blue-600 hover:text-mesa-blue-700"
+                  >
+                    operationsmanager@mesamadisonva.org
                   </a>{" "}
                   to speak with a staff member about your situation.
                 </p>
@@ -125,23 +193,24 @@ export default function EmergencyServicesPage() {
 
             {/* Step 2 */}
             <div className="flex gap-4">
-              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-mesa-green-700 text-white">
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-mesa-blue-700 text-white">
                 <FileText className="h-5 w-5" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900">
-                  2. Schedule an Appointment
+                  2. Complete Application
                 </h3>
                 <p className="mt-2 text-gray-600">
-                  We&apos;ll schedule a time for you to meet with us and discuss
-                  your needs.
+                  Complete the Client Services Application and provide
+                  documentation of the bill or emergency you need help with.
                 </p>
+                {/* TODO: Add link to Client Services Application when available */}
               </div>
             </div>
 
             {/* Step 3 */}
             <div className="flex gap-4">
-              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-mesa-green-700 text-white">
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-mesa-blue-700 text-white">
                 <HelpCircle className="h-5 w-5" />
               </div>
               <div>
@@ -159,36 +228,37 @@ export default function EmergencyServicesPage() {
       </section>
 
       {/* What to Bring */}
-      <section className="bg-mesa-green-50 py-16">
+      <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-3xl font-bold text-gray-900">What to Bring</h2>
             <p className="mt-4 text-lg text-gray-600">
-              When you meet with us, please bring the following documents:
+              When you visit during Client Services hours, please bring the
+              following documents:
             </p>
             <ul className="mt-6 space-y-3 text-gray-600">
               <li className="flex gap-3">
-                <span className="text-mesa-green-600">•</span>
+                <span className="text-mesa-blue-600">•</span>
                 <span>
                   Photo ID showing your Madison County address (or ID plus a
                   utility bill showing your address)
                 </span>
               </li>
               <li className="flex gap-3">
-                <span className="text-mesa-green-600">•</span>
+                <span className="text-mesa-blue-600">•</span>
                 <span>
                   Documentation of the emergency (bill, disconnect notice,
                   estimate, etc.)
                 </span>
               </li>
               <li className="flex gap-3">
-                <span className="text-mesa-green-600">•</span>
+                <span className="text-mesa-blue-600">•</span>
                 <span>
                   Proof of income (pay stubs, benefits letter, or similar)
                 </span>
               </li>
               <li className="flex gap-3">
-                <span className="text-mesa-green-600">•</span>
+                <span className="text-mesa-blue-600">•</span>
                 <span>
                   Information about other assistance you&apos;ve applied for
                 </span>
@@ -199,17 +269,17 @@ export default function EmergencyServicesPage() {
       </section>
 
       {/* Important Notes */}
-      <section className="py-16">
+      <section className="bg-mesa-cream py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl rounded-xl border border-amber-200 bg-amber-50 p-6">
             <h3 className="font-semibold text-amber-800">Please Note</h3>
             <ul className="mt-4 space-y-2 text-amber-700">
               <li>
-                • Emergency assistance is provided on a case-by-case basis and
-                subject to available funding.
+                • Client Services assistance is provided on a case-by-case basis
+                and subject to available funding.
               </li>
               <li>
-                • We serve Madison County, Virginia residents only.
+                • We currently serve Madison County, Virginia residents.
               </li>
               <li>
                 • Assistance limits may apply. We&apos;ll discuss specifics when
@@ -225,19 +295,27 @@ export default function EmergencyServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-mesa-green-700 py-12">
+      <section className="bg-mesa-blue-700 py-12">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-white">Need Help?</h2>
-          <p className="mt-2 text-mesa-green-100">
+          <p className="mt-2 text-mesa-blue-100">
             Don&apos;t wait until the situation becomes critical. Reach out
             today.
           </p>
-          <a
-            href="tel:540-948-4427"
-            className="mt-6 inline-block rounded-md bg-white px-8 py-3 text-lg font-semibold text-mesa-green-700 hover:bg-mesa-green-50"
-          >
-            Call 540-948-4427
-          </a>
+          <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <a
+              href="tel:540-948-4427"
+              className="rounded-md bg-white px-8 py-3 text-lg font-semibold text-mesa-blue-700 hover:bg-mesa-blue-50"
+            >
+              Call 540-948-4427
+            </a>
+            <a
+              href="mailto:operationsmanager@mesamadisonva.org"
+              className="rounded-md border-2 border-white px-8 py-3 text-lg font-semibold text-white hover:bg-white hover:text-mesa-blue-700"
+            >
+              Email Us
+            </a>
+          </div>
         </div>
       </section>
     </div>

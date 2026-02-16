@@ -227,7 +227,7 @@ export function SettingsManager({ settings: initialSettings }: SettingsManagerPr
                       disabled={isSaving || (!hasChanges && !error)}
                       className={`flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                         hasChanges
-                          ? "bg-mesa-green-600 text-white hover:bg-mesa-green-700"
+                          ? "bg-mesa-blue-600 text-white hover:bg-mesa-blue-700"
                           : "bg-gray-100 text-gray-400"
                       } disabled:cursor-not-allowed`}
                     >
@@ -255,7 +255,7 @@ export function SettingsManager({ settings: initialSettings }: SettingsManagerPr
                           e.target.checked ? "true" : "false"
                         )
                       }
-                      className="h-4 w-4 rounded border-gray-300 text-mesa-green-600 focus:ring-mesa-green-500"
+                      className="h-4 w-4 rounded border-gray-300 text-mesa-blue-600 focus:ring-mesa-blue-500"
                     />
                     <span className="text-sm text-gray-700">Enabled</span>
                   </label>
@@ -267,7 +267,7 @@ export function SettingsManager({ settings: initialSettings }: SettingsManagerPr
                       handleValueChange(setting.key, e.target.value)
                     }
                     placeholder={`Enter ${formatSettingKey(setting.key).toLowerCase()}`}
-                    className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-mesa-green-500 focus:outline-none focus:ring-1 focus:ring-mesa-green-500"
+                    className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-mesa-blue-500 focus:outline-none focus:ring-1 focus:ring-mesa-blue-500"
                   />
                 )}
               </div>

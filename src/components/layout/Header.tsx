@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { DonateButton } from "@/components/shared/DonateButton";
@@ -9,11 +10,11 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Food Pantry", href: "/food-pantry" },
-  { name: "Emergency Services", href: "/emergency-services" },
+  { name: "Client Services", href: "/emergency-services" },
   { name: "Resources", href: "/resources" },
   { name: "Stories", href: "/stories" },
   { name: "Volunteer & Donate", href: "/volunteer-donate" },
-  { name: "Contact", href: "/contact" },
+  { name: "Let\u2019s Stay Connected!", href: "/contact" },
 ];
 
 export function Header() {
@@ -28,7 +29,14 @@ export function Header() {
         {/* Logo */}
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
-            <span className="text-2xl font-bold text-mesa-green-700">MESA</span>
+            <Image
+              src="/images/mesa-logo.jpg"
+              alt="MESA - Madison Emergency Services Association"
+              width={150}
+              height={60}
+              className="h-12 w-auto"
+              priority
+            />
           </Link>
         </div>
 
@@ -52,7 +60,7 @@ export function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-gray-700 hover:text-mesa-green-600"
+              className="text-sm font-medium text-gray-700 hover:text-mesa-blue-600"
             >
               {item.name}
             </Link>
@@ -85,9 +93,13 @@ export function Header() {
                 className="-m-1.5 p-1.5"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <span className="text-2xl font-bold text-mesa-green-700">
-                  MESA
-                </span>
+                <Image
+                  src="/images/mesa-logo.jpg"
+                  alt="MESA"
+                  width={120}
+                  height={48}
+                  className="h-10 w-auto"
+                />
               </Link>
               <button
                 type="button"

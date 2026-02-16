@@ -7,8 +7,7 @@ interface DonateButtonProps {
 }
 
 export function DonateButton({ size = "md", className }: DonateButtonProps) {
-  // TODO: Get PayPal URL from site settings/database
-  const donateUrl = "https://www.paypal.com/donate/?hosted_button_id=PLACEHOLDER";
+  const donateUrl = "https://www.paypal.com/donate/?hosted_button_id=4S7MUPTZN7MY4";
 
   const sizeClasses = {
     sm: "px-3 py-1.5 text-sm",
@@ -22,7 +21,7 @@ export function DonateButton({ size = "md", className }: DonateButtonProps) {
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "inline-flex items-center gap-2 rounded-md bg-mesa-gold font-semibold text-mesa-green-900 transition-colors hover:bg-yellow-500",
+        "inline-flex items-center gap-2 rounded-md bg-mesa-gold font-semibold text-mesa-blue-900 transition-colors hover:bg-yellow-500",
         sizeClasses[size],
         className
       )}

@@ -42,7 +42,7 @@ function LoginContent() {
       <div className="w-full max-w-md">
         <div className="rounded-xl bg-white p-8 shadow-lg">
           <div className="text-center">
-            <h1 className="text-3xl font-bold text-mesa-green-700">MESA</h1>
+            <h1 className="text-3xl font-bold text-mesa-blue-700">MESA</h1>
             <p className="mt-2 text-gray-600">Admin Portal</p>
           </div>
 

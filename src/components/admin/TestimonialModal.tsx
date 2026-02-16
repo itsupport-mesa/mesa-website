@@ -185,7 +185,7 @@ export function TestimonialModal({
                   value={displayName}
                   onChange={(e) => setDisplayName(e.target.value)}
                   placeholder="e.g., 'Sarah M.' or 'Anonymous'"
-                  className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-mesa-green-500 focus:outline-none focus:ring-1 focus:ring-mesa-green-500"
+                  className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-mesa-blue-500 focus:outline-none focus:ring-1 focus:ring-mesa-blue-500"
                 />
               </div>
 
@@ -198,7 +198,7 @@ export function TestimonialModal({
                   onChange={(e) => setReviewNotes(e.target.value)}
                   rows={3}
                   placeholder="Optional notes about this testimonial..."
-                  className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-mesa-green-500 focus:outline-none focus:ring-1 focus:ring-mesa-green-500"
+                  className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-mesa-blue-500 focus:outline-none focus:ring-1 focus:ring-mesa-blue-500"
                 />
               </div>
             </>
@@ -230,7 +230,7 @@ export function TestimonialModal({
             <button
               onClick={() => handleAction("APPROVED")}
               disabled={saving}
-              className="flex items-center gap-2 rounded-lg bg-mesa-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-mesa-green-700 disabled:opacity-50"
+              className="flex items-center gap-2 rounded-lg bg-mesa-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-mesa-blue-700 disabled:opacity-50"
             >
               <CheckCircle className="h-4 w-4" />
               {saving ? "Saving..." : "Approve"}

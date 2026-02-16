@@ -75,7 +75,7 @@ export function UsersManager({ users: initialUsers, currentUserId }: UsersManage
       {/* Admins */}
       <div className="mb-8">
         <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-gray-900">
-          <Shield className="h-5 w-5 text-mesa-green-600" />
+          <Shield className="h-5 w-5 text-mesa-blue-600" />
           Administrators ({admins.length})
         </h2>
         <div className="space-y-3">
@@ -141,8 +141,8 @@ function UserCard({ user, isCurrentUser, onRoleChange, saving }: UserCardProps) 
             className="rounded-full"
           />
         ) : (
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-mesa-green-100">
-            <UserIcon className="h-6 w-6 text-mesa-green-700" />
+          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-mesa-blue-100">
+            <UserIcon className="h-6 w-6 text-mesa-blue-700" />
           </div>
         )}
         <div>
@@ -151,7 +151,7 @@ function UserCard({ user, isCurrentUser, onRoleChange, saving }: UserCardProps) 
               {user.name || "Unknown"}
             </p>
             {isCurrentUser && (
-              <span className="rounded bg-mesa-green-100 px-2 py-0.5 text-xs font-medium text-mesa-green-700">
+              <span className="rounded bg-mesa-blue-100 px-2 py-0.5 text-xs font-medium text-mesa-blue-700">
                 You
               </span>
             )}
@@ -174,7 +174,7 @@ function UserCard({ user, isCurrentUser, onRoleChange, saving }: UserCardProps) 
           value={user.role}
           onChange={(e) => onRoleChange(user.id, e.target.value as UserRole)}
           disabled={isCurrentUser || saving}
-          className={`rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-mesa-green-500 focus:outline-none focus:ring-1 focus:ring-mesa-green-500 ${
+          className={`rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-mesa-blue-500 focus:outline-none focus:ring-1 focus:ring-mesa-blue-500 ${
             isCurrentUser ? "cursor-not-allowed bg-gray-100" : ""
           }`}
         >
