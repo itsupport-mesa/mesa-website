@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -8,17 +9,17 @@ export const metadata: Metadata = {
 };
 
 const boardMembers = [
-  { name: "Patricia Livingston", role: "President" },
-  { name: "Jim Duszynski", role: "Vice President" },
-  { name: "Erin Nicholls", role: "Treasurer" },
-  { name: "Celene Pumphrey", role: "Secretary" },
-  { name: "Robin Sweely", role: "Director" },
+  { name: "Patricia Livingston", role: "President", imageId: "1mVV0Ij4rYvmQvU9ihtTMRIuBwbh44X8R" },
+  { name: "Jim Duszynski", role: "Vice President", imageId: "1tskftZZYG1mztzN-gnBAsK4gLHiJTVde" },
+  { name: "Erin Nicholls", role: "Treasurer", imageId: "1AlKPOQT7VzRV-ILFOh5XKIH-C0O83a0v" },
+  { name: "Celene Pumphrey", role: "Secretary", imageId: "1mU2tkhGOSlCZPh22YZGfZmSy-wiB994o" },
+  { name: "Robin Sweely", role: "Director", imageId: "1tiWP_tGkzeLzDbsUGnb4oFBm9Hg3U7UE" },
 ];
 
 const staff = [
-  { name: "Patricia Livingston", role: "Executive Director" },
-  { name: "Catrina Lloyd", role: "Pantry Manager" },
-  { name: "Kristina Magel", role: "Operations Manager" },
+  { name: "Patricia Livingston", role: "Executive Director", imageId: "1mVV0Ij4rYvmQvU9ihtTMRIuBwbh44X8R" },
+  { name: "Catrina Lloyd", role: "Pantry Manager", imageId: "" },
+  { name: "Kristina Magel", role: "Operations Manager", imageId: "" },
 ];
 
 export default function AboutPage() {
@@ -155,40 +156,74 @@ export default function AboutPage() {
             our community.
           </p>
 
-          <div className="mt-12 grid gap-12 md:grid-cols-2">
-            {/* Board of Directors */}
-            <div>
-              <h3 className="text-2xl font-bold text-mesa-blue-800">
-                Board of Directors
-              </h3>
-              <ul className="mt-6 space-y-4">
-                {boardMembers.map((member) => (
-                  <li
-                    key={member.name + member.role}
-                    className="rounded-lg bg-white p-4 shadow-sm"
-                  >
-                    <p className="font-semibold text-gray-900">{member.name}</p>
-                    <p className="text-sm text-mesa-blue-600">{member.role}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Staff */}
+          <h3 className="mt-12 text-center text-2xl font-bold text-mesa-blue-800">
+            Staff
+          </h3>
+          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {staff.map((member) => (
+              <div
+                key={member.name + member.role}
+                className="overflow-hidden rounded-xl bg-white shadow-sm"
+              >
+                <div className="relative aspect-[4/3] w-full bg-mesa-blue-100">
+                  {member.imageId ? (
+                    <Image
+                      src={`https://lh3.googleusercontent.com/d/${member.imageId}=w400`}
+                      alt={member.name}
+                      fill
+                      className="object-cover object-top"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  ) : (
+                    <div className="flex h-full items-center justify-center">
+                      <span className="text-4xl font-bold text-mesa-blue-300">
+                        {member.name.split(" ").map((n) => n[0]).join("")}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <div className="p-4 text-center">
+                  <p className="font-semibold text-gray-900">{member.name}</p>
+                  <p className="text-sm text-mesa-blue-600">{member.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
 
-            {/* Staff */}
-            <div>
-              <h3 className="text-2xl font-bold text-mesa-blue-800">Staff</h3>
-              <ul className="mt-6 space-y-4">
-                {staff.map((member) => (
-                  <li
-                    key={member.name + member.role}
-                    className="rounded-lg bg-white p-4 shadow-sm"
-                  >
-                    <p className="font-semibold text-gray-900">{member.name}</p>
-                    <p className="text-sm text-mesa-blue-600">{member.role}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Board of Directors */}
+          <h3 className="mt-12 text-center text-2xl font-bold text-mesa-blue-800">
+            Board of Directors
+          </h3>
+          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {boardMembers.map((member) => (
+              <div
+                key={member.name + member.role}
+                className="overflow-hidden rounded-xl bg-white shadow-sm"
+              >
+                <div className="relative aspect-[4/3] w-full bg-mesa-blue-100">
+                  {member.imageId ? (
+                    <Image
+                      src={`https://lh3.googleusercontent.com/d/${member.imageId}=w400`}
+                      alt={member.name}
+                      fill
+                      className="object-cover object-top"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                    />
+                  ) : (
+                    <div className="flex h-full items-center justify-center">
+                      <span className="text-4xl font-bold text-mesa-blue-300">
+                        {member.name.split(" ").map((n) => n[0]).join("")}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <div className="p-4 text-center">
+                  <p className="font-semibold text-gray-900">{member.name}</p>
+                  <p className="text-sm text-mesa-blue-600">{member.role}</p>
+                </div>
+              </div>
+            ))}
           </div>
 
           <div className="mt-12 text-center">

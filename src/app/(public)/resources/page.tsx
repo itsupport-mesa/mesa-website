@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { ExternalLink, Phone, Globe } from "lucide-react";
+import { ExternalLink, Phone, Globe, Landmark, Apple, Zap, HeartPulse, HelpCircle } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 
 export const metadata: Metadata = {
@@ -37,6 +37,13 @@ export default async function ResourcesPage() {
     },
     {} as Record<string, typeof resources>
   );
+
+  const categoryIcons: Record<string, React.ReactNode> = {
+    "Government Services": <Landmark className="h-7 w-7 text-mesa-blue-600" />,
+    "Food Assistance": <Apple className="h-7 w-7 text-mesa-blue-600" />,
+    "Utility Assistance": <Zap className="h-7 w-7 text-mesa-blue-600" />,
+    "Health Services": <HeartPulse className="h-7 w-7 text-mesa-blue-600" />,
+  };
 
   // Static resources that are always shown
   const staticResources = [
@@ -146,9 +153,12 @@ export default async function ResourcesPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             {Object.entries(groupedResources).map(([category, items]) => (
               <div key={category} className="mb-12">
-                <h2 className="mb-6 text-2xl font-bold text-gray-900">
-                  {category}
-                </h2>
+                <div className="mb-6 flex items-center gap-3">
+                  {categoryIcons[category]}
+                  <h2 className="text-2xl font-bold text-gray-900">
+                    {category}
+                  </h2>
+                </div>
                 <div className="grid gap-4 md:grid-cols-2">
                   {items.map((resource) => (
                     <div
@@ -190,9 +200,12 @@ export default async function ResourcesPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {staticResources.map((section) => (
             <div key={section.category} className="mb-12">
-              <h2 className="mb-6 text-2xl font-bold text-gray-900">
-                {section.category}
-              </h2>
+              <div className="mb-6 flex items-center gap-3">
+                {categoryIcons[section.category]}
+                <h2 className="text-2xl font-bold text-gray-900">
+                  {section.category}
+                </h2>
+              </div>
               <div className="grid gap-4 md:grid-cols-2">
                 {section.items.map((resource) => (
                   <div
@@ -236,9 +249,12 @@ export default async function ResourcesPage() {
       {/* Need Help */}
       <section className="bg-mesa-blue-50 py-12">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900">
-            Not Sure Where to Start?
-          </h2>
+          <div className="flex items-center justify-center gap-3">
+            <HelpCircle className="h-7 w-7 text-mesa-blue-600" />
+            <h2 className="text-2xl font-bold text-gray-900">
+              Not Sure Where to Start?
+            </h2>
+          </div>
           <p className="mx-auto mt-4 max-w-2xl text-gray-600">
             If you&apos;re unsure which resources are right for your situation,
             give us a call. We&apos;re happy to help connect you with the

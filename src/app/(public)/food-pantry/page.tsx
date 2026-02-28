@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Clock, MapPin, Phone, ShoppingCart, Heart, Apple, Package } from "lucide-react";
+import { Info, Users, ShoppingCart, Heart, Apple, Package, HandHeart } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Food Pantry",
@@ -24,111 +24,72 @@ export default function FoodPantryPage() {
         </div>
       </section>
 
-      {/* Hours & Location */}
-      <section className="bg-mesa-cream py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {/* Hours */}
-            <div className="rounded-xl bg-white p-6 shadow-sm">
-              <div className="flex items-center gap-3">
-                <Clock className="h-6 w-6 text-mesa-blue-600" />
-                <h2 className="text-xl font-semibold text-gray-900">
-                  Pantry Hours
-                </h2>
-              </div>
-              <ul className="mt-4 space-y-2 text-gray-600">
-                <li className="flex justify-between">
-                  <span>Tuesday</span>
-                  <span>10:00 AM - 1:00 PM</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Wednesday</span>
-                  <span>10:00 AM - 1:00 PM</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Wednesday Evening</span>
-                  <span>6:00 - 7:30 PM</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Saturday</span>
-                  <span>10:00 AM - 12:00 PM</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Location */}
-            <div className="rounded-xl bg-white p-6 shadow-sm">
-              <div className="flex items-center gap-3">
-                <MapPin className="h-6 w-6 text-mesa-blue-600" />
-                <h2 className="text-xl font-semibold text-gray-900">Location</h2>
-              </div>
-              <div className="mt-4 text-gray-600">
-                <p>927 Orange Road</p>
-                <p>Madison, VA 22731</p>
-                <Link
-                  href="/contact"
-                  className="mt-4 inline-block text-mesa-blue-600 hover:text-mesa-blue-700"
-                >
-                  Get directions &rarr;
-                </Link>
-              </div>
-            </div>
-
-            {/* Contact */}
-            <div className="rounded-xl bg-white p-6 shadow-sm">
-              <div className="flex items-center gap-3">
-                <Phone className="h-6 w-6 text-mesa-blue-600" />
-                <h2 className="text-xl font-semibold text-gray-900">Contact</h2>
-              </div>
-              <div className="mt-4 text-gray-600">
-                <p>
-                  <a
-                    href="tel:540-948-4427"
-                    className="hover:text-mesa-blue-600"
-                  >
-                    540-948-4427
-                  </a>
-                </p>
-                <p className="mt-2">
-                  <a
-                    href="mailto:info@mesamadisonva.org"
-                    className="hover:text-mesa-blue-600"
-                  >
-                    info@mesamadisonva.org
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About the Pantry */}
+      {/* Row 1: About Our Food Pantry (left) + Who Can Use (right) */}
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl">
-            <h2 className="text-3xl font-bold text-gray-900">About Our Food Pantry</h2>
-            <div className="mt-6 space-y-4 text-lg text-gray-600">
-              <p>
-                MESA&apos;s Food Pantry operates multiple days each week, including
-                Saturdays, to assist individuals in our community who need
-                nourishment.
-              </p>
-              <p>
-                MESA Food Pantry is run by one full-time staff member, supported by
-                numerous dedicated volunteers and food pickup drivers, and dedicates
-                hundreds of hours to receiving, sorting, and storing thousands of
-                pounds of food for Madison households each week.
-              </p>
+          <div className="grid gap-8 md:grid-cols-2">
+            {/* Left: About Our Food Pantry */}
+            <div>
+              <div className="flex items-center gap-3">
+                <Info className="h-7 w-7 text-mesa-blue-600" />
+                <h2 className="text-2xl font-bold text-gray-900">
+                  About Our Food Pantry
+                </h2>
+              </div>
+              <div className="mt-6 space-y-4 text-lg text-gray-600">
+                <p>
+                  MESA&apos;s Food Pantry operates multiple days each week, including
+                  Saturdays, to assist individuals in our community who need
+                  nourishment.
+                </p>
+                <p>
+                  MESA Food Pantry is run by one full-time staff member, supported by
+                  numerous dedicated volunteers and food pickup drivers, and dedicates
+                  hundreds of hours to receiving, sorting, and storing thousands of
+                  pounds of food for Madison households each week.
+                </p>
+              </div>
+            </div>
+
+            {/* Right: Who Can Use the Food Pantry? */}
+            <div>
+              <div className="flex items-center gap-3">
+                <Users className="h-7 w-7 text-mesa-blue-600" />
+                <h2 className="text-2xl font-bold text-gray-900">
+                  Who Can Use the Food Pantry?
+                </h2>
+              </div>
+              <div className="mt-6 space-y-4 text-lg text-gray-600">
+                <p>
+                  Our food pantry is available to all Madison County, Virginia
+                  residents who are experiencing food insecurity. We believe no
+                  one in our community should go hungry.
+                </p>
+                <p>
+                  <strong>What to bring:</strong> Please bring a photo ID showing
+                  your Madison County address. If your ID doesn&apos;t show your
+                  current address, please bring a piece of mail (such as a utility
+                  bill) that shows your name and Madison County address.
+                </p>
+                <p>
+                  <strong>First-time visitors:</strong> We&apos;ll ask you to
+                  complete a brief intake form. This helps us serve you better and
+                  allows us to report our impact to funders who support our
+                  mission.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What We Provide */}
+      {/* What We Provide - full width */}
       <section className="bg-mesa-cream py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900">What We Provide</h2>
+          <div className="flex items-center gap-3">
+            <Package className="h-7 w-7 text-mesa-blue-600" />
+            <h2 className="text-2xl font-bold text-gray-900">What We Provide</h2>
+          </div>
           <div className="mt-8 grid gap-8 md:grid-cols-2">
             <div className="rounded-xl bg-white p-6 shadow-sm">
               <div className="flex items-center gap-3">
@@ -150,7 +111,7 @@ export default function FoodPantryPage() {
 
             <div className="rounded-xl bg-white p-6 shadow-sm">
               <div className="flex items-center gap-3">
-                <Package className="h-6 w-6 text-mesa-blue-600" />
+                <ShoppingCart className="h-6 w-6 text-mesa-blue-600" />
                 <h3 className="text-xl font-semibold text-gray-900">
                   Personal Hygiene &amp; Cleaning Products
                 </h3>
@@ -196,43 +157,16 @@ export default function FoodPantryPage() {
         </div>
       </section>
 
-      {/* Eligibility */}
+      {/* Help Stock Our Shelves */}
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl">
-            <h2 className="text-3xl font-bold text-gray-900">
-              Who Can Use the Food Pantry?
-            </h2>
-            <div className="mt-6 space-y-4 text-lg text-gray-600">
-              <p>
-                Our food pantry is available to all Madison County, Virginia
-                residents who are experiencing food insecurity. We believe no
-                one in our community should go hungry.
-              </p>
-              <p>
-                <strong>What to bring:</strong> Please bring a photo ID showing
-                your Madison County address. If your ID doesn&apos;t show your
-                current address, please bring a piece of mail (such as a utility
-                bill) that shows your name and Madison County address.
-              </p>
-              <p>
-                <strong>First-time visitors:</strong> We&apos;ll ask you to
-                complete a brief intake form. This helps us serve you better and
-                allows us to report our impact to funders who support our
-                mission.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Amazon Wishlists */}
-      <section className="bg-mesa-blue-50 py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900">
-              Help Stock Our Shelves
-            </h2>
+            <div className="flex items-center justify-center gap-3">
+              <HandHeart className="h-7 w-7 text-mesa-blue-600" />
+              <h2 className="text-2xl font-bold text-gray-900">
+                Help Stock Our Shelves
+              </h2>
+            </div>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
               Shop our Amazon Wishlists and have items delivered directly to
               MESA, or make a financial contribution to help us purchase
@@ -267,10 +201,10 @@ export default function FoodPantryPage() {
       </section>
 
       {/* Blue Ridge Area Food Bank Partner */}
-      <section className="py-16">
+      <section className="bg-mesa-cream py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center">
-            <h2 className="text-3xl font-bold text-gray-900">Our Partner</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Our Partner</h2>
             <a
               href="https://foodfinder.brafb.org/"
               target="_blank"
@@ -302,7 +236,7 @@ export default function FoodPantryPage() {
       </section>
 
       {/* USDA Non-Discrimination Statement */}
-      <section className="bg-mesa-cream py-12">
+      <section className="bg-mesa-blue-50 py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <details>
             <summary className="cursor-pointer text-center text-sm font-medium text-mesa-blue-700 hover:text-mesa-blue-800">

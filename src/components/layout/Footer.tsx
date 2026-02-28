@@ -98,6 +98,12 @@ export function Footer() {
               <li>Saturday: 10:00 AM - 12:00 PM</li>
             </ul>
 
+            <h3 className="mt-6 text-lg font-semibold">Client Services Hours</h3>
+            <ul className="mt-4 space-y-2 text-mesa-blue-100">
+              <li>Monday: 10:00 AM - 1:00 PM</li>
+              <li>Thursday: 10:00 AM - 1:00 PM</li>
+            </ul>
+
             <div className="mt-6">
               <h3 className="text-lg font-semibold">Our Partner</h3>
               <a

@@ -135,7 +135,7 @@ export function SlideshowManager({ images: initialImages }: SlideshowManagerProp
                 className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-mesa-blue-500 focus:outline-none focus:ring-1 focus:ring-mesa-blue-500"
               />
               <p className="mt-1 text-xs text-gray-500">
-                Enter the Google Drive direct link or any public image URL
+                Paste a Google Drive share link (right-click → &quot;Get link&quot;) or any public image URL. Drive links are auto-converted.
               </p>
             </div>
             <div className="sm:col-span-2">

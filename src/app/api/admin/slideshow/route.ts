@@ -21,15 +21,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Generate a fileId from the URL (for Google Drive compatibility)
+    // Extract file ID and build a displayable URL for Google Drive links
     const fileId = imageUrl.includes("drive.google.com")
       ? extractGoogleDriveFileId(imageUrl)
+      : imageUrl;
+
+    const displayUrl = imageUrl.includes("drive.google.com") && fileId !== imageUrl
+      ? `https://lh3.googleusercontent.com/d/${fileId}=w800`
       : imageUrl;
 
     const image = await prisma.slideshowImage.create({
       data: {
         fileId,
-        imageUrl,
+        imageUrl: displayUrl,
         altText,
         caption: caption || null,
         linkUrl: linkUrl || null,
