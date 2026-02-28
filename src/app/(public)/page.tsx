@@ -6,18 +6,25 @@ import { GoogleCalendar } from "@/components/shared/GoogleCalendar";
 import { HomepageCarousel } from "@/components/home/HomepageCarousel";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
-  const slideshowImages = await prisma.slideshowImage.findMany({
-    where: { isActive: true },
-    orderBy: { sortOrder: "asc" },
-    select: {
-      id: true,
-      imageUrl: true,
-      altText: true,
-      caption: true,
-      linkUrl: true,
-    },
-  });
+  let slideshowImages: { id: string; imageUrl: string; altText: string; caption: string | null; linkUrl: string | null }[] = [];
+  try {
+    slideshowImages = await prisma.slideshowImage.findMany({
+      where: { isActive: true },
+      orderBy: { sortOrder: "asc" },
+      select: {
+        id: true,
+        imageUrl: true,
+        altText: true,
+        caption: true,
+        linkUrl: true,
+      },
+    });
+  } catch {
+    // Database not available during build - use empty array
+  }
   return (
     <div>
       {/* Hero Section */}
