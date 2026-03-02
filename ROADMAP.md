@@ -4,8 +4,8 @@
 
 **Streams 1-3 Complete. Stream 4 substantially progressed.** Ready for launch prep once remaining blocked items are resolved.
 
-**Last session**: Feb 28, 2026 — Page-by-page design refresh (all public pages), homepage slideshow carousel, Google Calendar embed, build fix for Railway deployment.
-**Next session**: Continue page-by-page review, remaining Stream 4 items + Stream 5 launch prep.
+**Last session**: Mar 2, 2026 — Hero background image, footer simplification, contact page cleanup.
+**Next session**: Design review for remaining pages (stories, volunteer-donate, contact), remaining Stream 4 items + Stream 5 launch prep.
 
 **Deployed**: https://mesa-website-production.up.railway.app
 **Google OAuth**: Configured and tested — first admin: itsupport@mesamadisonva.org
@@ -100,8 +100,7 @@ These items have TODO placeholders in the code and are ready to wire up once URL
 2. **Google Drive API** — Set up service account for image uploads (slideshow + testimonials)
 3. **Board documents display** — Build Google Drive folder viewer for annual reports / IRS 990s
 4. **ContentBlock integration** — Connect public pages to CMS database (currently hardcoded)
-5. **Contact page calendar** — Contact page still has placeholder; homepage has the calendar embed already
-6. **Slideshow images** — Need to add actual images via `/admin/slideshow` (carousel component is built)
+5. **Slideshow images** — Need to add actual images via `/admin/slideshow` (carousel component is built)
 
 ### Stream 5: Launch Prep
 
@@ -117,7 +116,7 @@ These items have TODO placeholders in the code and are ready to wire up once URL
 
 | Route | Status | Design Review | Notes |
 |-------|--------|--------------|-------|
-| `/` | **Live** | **Done** (Feb 28) | Hero, hours/visit cards, mission/vision/values + carousel, food pantry/client services cards, Facebook feed + Google Calendar |
+| `/` | **Live** | **Done** (Mar 2) | Hero with mountain bg image, hours/visit cards, mission/vision/values + carousel, food pantry/client services cards, Facebook feed + Google Calendar |
 | `/about` | **Live** | **Done** (Feb 28) | History, mission, vision, values, team photos (Google Drive), board of directors grid. TODO: staff photos for Catrina & Kristina |
 | `/food-pantry` | **Live** | **Done** (Feb 28) | 2-column layout, what we provide cards, help stock shelves, Blue Ridge partner, USDA statement |
 | `/emergency-services` | **Live** | **Done** (Feb 28) | 2-column how we help/please note, types of assistance with icons, how to apply + steps. TODO: application link |
@@ -125,7 +124,7 @@ These items have TODO placeholders in the code and are ready to wire up once URL
 | `/stories` | **Live** | Needs review | Displays approved testimonials from DB |
 | `/stories/submit` | **Live** | Needs review | Submission form with permission checkboxes |
 | `/volunteer-donate` | **Live** | Needs review | Donation copy, PayPal, QR code, Amazon wishlists, volunteer section. TODO: Google Form for volunteers |
-| `/contact` | **Live** | Needs review | "Let's Stay Connected!", newsletter stub, contact info, map, directions. TODO: newsletter link, calendar embed |
+| `/contact` | **Live** | Needs review | "Let's Stay Connected!", newsletter stub, contact info, map, directions. TODO: newsletter link |
 | `/admin/*` | **Live** | N/A | Full admin portal with CMS, moderation, settings |
 
 ---
@@ -150,6 +149,15 @@ Lower priority:
 ---
 
 ## Session Notes
+
+### Mar 2, 2026 — Hero Image, Footer Cleanup, Contact Page
+
+- Added mountain landscape background image (`hero-bg.png`) behind homepage hero section at 25% opacity
+- Simplified footer from 3 columns (Contact / Quick Links / Hours+Partner) to 3 columns (Contact / Food Pantry Hours / Client Services Hours) — removed Quick Links nav and Blue Ridge partner logo
+- Removed "Upcoming Events" placeholder section from contact page (calendar already lives on homepage)
+- Updated roadmap status and session notes
+
+---
 
 ### Feb 28, 2026 — Page-by-Page Design Refresh + New Components
 
