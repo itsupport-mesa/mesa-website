@@ -1,29 +1,17 @@
-import Link from "next/link";
-import Image from "next/image";
 import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
 
-const navigation = {
-  main: [
-    { name: "About Us", href: "/about" },
-    { name: "Food Pantry", href: "/food-pantry" },
-    { name: "Client Services", href: "/emergency-services" },
-    { name: "Resources", href: "/resources" },
-    { name: "Volunteer & Donate", href: "/volunteer-donate" },
-    { name: "Let\u2019s Stay Connected!", href: "/contact" },
-  ],
-  social: [
-    {
-      name: "Facebook",
-      href: "https://www.facebook.com/MesaMadisonCountyVA/",
-      icon: Facebook,
-    },
-    {
-      name: "Instagram",
-      href: "https://instagram.com/mesamadisonva",
-      icon: Instagram,
-    },
-  ],
-};
+const socialLinks = [
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/MesaMadisonCountyVA/",
+    icon: Facebook,
+  },
+  {
+    name: "Instagram",
+    href: "https://instagram.com/mesamadisonva",
+    icon: Instagram,
+  },
+];
 
 export function Footer() {
   return (
@@ -71,24 +59,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold">Quick Links</h3>
-            <ul className="mt-4 space-y-2">
-              {navigation.main.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-mesa-blue-100 hover:text-white"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Hours & Partner */}
+          {/* Food Pantry Hours */}
           <div>
             <h3 className="text-lg font-semibold">Food Pantry Hours</h3>
             <ul className="mt-4 space-y-2 text-mesa-blue-100">
@@ -97,30 +68,15 @@ export function Footer() {
               <li>Wednesday Evening: 6:00 - 7:30 PM</li>
               <li>Saturday: 10:00 AM - 12:00 PM</li>
             </ul>
+          </div>
 
-            <h3 className="mt-6 text-lg font-semibold">Client Services Hours</h3>
+          {/* Client Services Hours */}
+          <div>
+            <h3 className="text-lg font-semibold">Client Services Hours</h3>
             <ul className="mt-4 space-y-2 text-mesa-blue-100">
               <li>Monday: 10:00 AM - 1:00 PM</li>
               <li>Thursday: 10:00 AM - 1:00 PM</li>
             </ul>
-
-            <div className="mt-6">
-              <h3 className="text-lg font-semibold">Our Partner</h3>
-              <a
-                href="https://foodfinder.brafb.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-block"
-              >
-                <Image
-                  src="/images/blue-ridge-logo.png"
-                  alt="Blue Ridge Area Food Bank"
-                  width={160}
-                  height={60}
-                  className="h-12 w-auto rounded bg-white p-1"
-                />
-              </a>
-            </div>
           </div>
         </div>
 
@@ -129,7 +85,7 @@ export function Footer() {
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             {/* Social links */}
             <div className="flex gap-4">
-              {navigation.social.map((item) => (
+              {socialLinks.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}

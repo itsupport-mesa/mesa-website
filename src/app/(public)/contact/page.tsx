@@ -210,23 +210,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Calendar Section - Placeholder */}
-      <section className="py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900">Upcoming Events</h2>
-          <p className="mt-4 text-gray-600">
-            Check our calendar for special events, holiday distributions, and
-            other activities.
-          </p>
-          {/* TODO: Add Google Calendar embed when URL is provided */}
-          <div className="mt-8 rounded-xl border-2 border-dashed border-gray-300 bg-gray-50 p-12 text-center">
-            <p className="text-gray-500">
-              Calendar coming soon. Check back later or follow us on Facebook
-              for updates.
-            </p>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
