@@ -9,15 +9,26 @@ export const metadata: Metadata = {
   title: "Resources",
 };
 
+export const dynamic = "force-dynamic";
+
 async function getResources() {
-  const resources = await prisma.resource.findMany({
-    orderBy: [{ category: "asc" }, { sortOrder: "asc" }],
-  });
-  return resources;
+  try {
+    const resources = await prisma.resource.findMany({
+      orderBy: [{ category: "asc" }, { sortOrder: "asc" }],
+    });
+    return resources;
+  } catch {
+    return [];
+  }
 }
 
 export default async function ResourcesPage() {
-  const session = await getServerSession(authOptions);
+  let session;
+  try {
+    session = await getServerSession(authOptions);
+  } catch {
+    redirect("/admin/login");
+  }
 
   if (session?.user.role !== "ADMIN") {
     redirect("/admin");

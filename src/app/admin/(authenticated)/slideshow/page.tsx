@@ -6,11 +6,17 @@ export const metadata: Metadata = {
   title: "Slideshow",
 };
 
+export const dynamic = "force-dynamic";
+
 async function getSlideshowImages() {
-  const images = await prisma.slideshowImage.findMany({
-    orderBy: { sortOrder: "asc" },
-  });
-  return images;
+  try {
+    const images = await prisma.slideshowImage.findMany({
+      orderBy: { sortOrder: "asc" },
+    });
+    return images;
+  } catch {
+    return [];
+  }
 }
 
 export default async function SlideshowPage() {

@@ -6,17 +6,23 @@ export const metadata: Metadata = {
   title: "Testimonials",
 };
 
-async function getTestimonials() {
-  const testimonials = await prisma.testimonial.findMany({
-    orderBy: [{ status: "asc" }, { submittedAt: "desc" }],
-    include: {
-      reviewedBy: {
-        select: { name: true },
-      },
-    },
-  });
+export const dynamic = "force-dynamic";
 
-  return testimonials;
+async function getTestimonials() {
+  try {
+    const testimonials = await prisma.testimonial.findMany({
+      orderBy: [{ status: "asc" }, { submittedAt: "desc" }],
+      include: {
+        reviewedBy: {
+          select: { name: true },
+        },
+      },
+    });
+
+    return testimonials;
+  } catch {
+    return [];
+  }
 }
 
 export default async function TestimonialsPage() {

@@ -9,7 +9,12 @@ export default async function AuthenticatedAdminLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSession(authOptions);
+  let session;
+  try {
+    session = await getServerSession(authOptions);
+  } catch {
+    redirect("/admin/login");
+  }
 
   if (!session) {
     redirect("/admin/login");

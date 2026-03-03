@@ -9,15 +9,26 @@ export const metadata: Metadata = {
   title: "Settings",
 };
 
+export const dynamic = "force-dynamic";
+
 async function getSettings() {
-  const settings = await prisma.siteSetting.findMany({
-    orderBy: { key: "asc" },
-  });
-  return settings;
+  try {
+    const settings = await prisma.siteSetting.findMany({
+      orderBy: { key: "asc" },
+    });
+    return settings;
+  } catch {
+    return [];
+  }
 }
 
 export default async function SettingsPage() {
-  const session = await getServerSession(authOptions);
+  let session;
+  try {
+    session = await getServerSession(authOptions);
+  } catch {
+    redirect("/admin/login");
+  }
 
   if (session?.user.role !== "ADMIN") {
     redirect("/admin");

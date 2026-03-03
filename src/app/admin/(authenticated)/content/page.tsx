@@ -6,29 +6,35 @@ export const metadata: Metadata = {
   title: "Content Editor",
 };
 
+export const dynamic = "force-dynamic";
+
 async function getContentBlocks() {
-  const blocks = await prisma.contentBlock.findMany({
-    orderBy: [{ page: "asc" }, { sortOrder: "asc" }],
-    include: {
-      lastEditedBy: {
-        select: { name: true },
+  try {
+    const blocks = await prisma.contentBlock.findMany({
+      orderBy: [{ page: "asc" }, { sortOrder: "asc" }],
+      include: {
+        lastEditedBy: {
+          select: { name: true },
+        },
       },
-    },
-  });
+    });
 
-  // Group by page
-  const grouped = blocks.reduce(
-    (acc, block) => {
-      if (!acc[block.page]) {
-        acc[block.page] = [];
-      }
-      acc[block.page].push(block);
-      return acc;
-    },
-    {} as Record<string, typeof blocks>
-  );
+    // Group by page
+    const grouped = blocks.reduce(
+      (acc, block) => {
+        if (!acc[block.page]) {
+          acc[block.page] = [];
+        }
+        acc[block.page].push(block);
+        return acc;
+      },
+      {} as Record<string, typeof blocks>
+    );
 
-  return grouped;
+    return grouped;
+  } catch {
+    return {};
+  }
 }
 
 export default async function ContentPage() {

@@ -12,47 +12,64 @@ import {
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
-async function getDashboardStats() {
-  const [
-    pendingTestimonials,
-    approvedTestimonials,
-    contentBlocks,
-    slideshowImages,
-    resources,
-    users,
-  ] = await Promise.all([
-    prisma.testimonial.count({ where: { status: "PENDING" } }),
-    prisma.testimonial.count({ where: { status: "APPROVED" } }),
-    prisma.contentBlock.count(),
-    prisma.slideshowImage.count({ where: { isActive: true } }),
-    prisma.resource.count({ where: { isActive: true } }),
-    prisma.user.count(),
-  ]);
+export const dynamic = "force-dynamic";
 
-  return {
-    pendingTestimonials,
-    approvedTestimonials,
-    contentBlocks,
-    slideshowImages,
-    resources,
-    users,
-  };
+async function getDashboardStats() {
+  try {
+    const [
+      pendingTestimonials,
+      approvedTestimonials,
+      contentBlocks,
+      slideshowImages,
+      resources,
+      users,
+    ] = await Promise.all([
+      prisma.testimonial.count({ where: { status: "PENDING" } }),
+      prisma.testimonial.count({ where: { status: "APPROVED" } }),
+      prisma.contentBlock.count(),
+      prisma.slideshowImage.count({ where: { isActive: true } }),
+      prisma.resource.count({ where: { isActive: true } }),
+      prisma.user.count(),
+    ]);
+
+    return {
+      pendingTestimonials,
+      approvedTestimonials,
+      contentBlocks,
+      slideshowImages,
+      resources,
+      users,
+    };
+  } catch {
+    return {
+      pendingTestimonials: 0,
+      approvedTestimonials: 0,
+      contentBlocks: 0,
+      slideshowImages: 0,
+      resources: 0,
+      users: 0,
+    };
+  }
 }
 
 async function getRecentActivity() {
-  const recentTestimonials = await prisma.testimonial.findMany({
-    where: { status: "PENDING" },
-    orderBy: { submittedAt: "desc" },
-    take: 5,
-    select: {
-      id: true,
-      clientInitials: true,
-      submittedAt: true,
-      story: true,
-    },
-  });
+  try {
+    const recentTestimonials = await prisma.testimonial.findMany({
+      where: { status: "PENDING" },
+      orderBy: { submittedAt: "desc" },
+      take: 5,
+      select: {
+        id: true,
+        clientInitials: true,
+        submittedAt: true,
+        story: true,
+      },
+    });
 
-  return recentTestimonials;
+    return recentTestimonials;
+  } catch {
+    return [];
+  }
 }
 
 export default async function AdminDashboard() {

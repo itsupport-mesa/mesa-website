@@ -9,23 +9,34 @@ export const metadata: Metadata = {
   title: "Users",
 };
 
+export const dynamic = "force-dynamic";
+
 async function getUsers() {
-  const users = await prisma.user.findMany({
-    orderBy: [{ role: "asc" }, { name: "asc" }],
-    select: {
-      id: true,
-      name: true,
-      email: true,
-      image: true,
-      role: true,
-      createdAt: true,
-    },
-  });
-  return users;
+  try {
+    const users = await prisma.user.findMany({
+      orderBy: [{ role: "asc" }, { name: "asc" }],
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        image: true,
+        role: true,
+        createdAt: true,
+      },
+    });
+    return users;
+  } catch {
+    return [];
+  }
 }
 
 export default async function UsersPage() {
-  const session = await getServerSession(authOptions);
+  let session;
+  try {
+    session = await getServerSession(authOptions);
+  } catch {
+    redirect("/admin/login");
+  }
 
   if (session?.user.role !== "ADMIN") {
     redirect("/admin");
