@@ -79,6 +79,33 @@ export default async function AdminDashboard() {
   const isAdmin = session?.user.role === "ADMIN";
 
   const cards = [
+    // Row 1: Staff Users, Slideshow, Content Blocks
+    ...(isAdmin
+      ? [
+          {
+            title: "Staff Users",
+            value: stats.users,
+            description: "Registered admin users",
+            icon: Users,
+            href: "/admin/users",
+          },
+        ]
+      : []),
+    {
+      title: "Slideshow Images",
+      value: stats.slideshowImages,
+      description: "Active homepage slides",
+      icon: Images,
+      href: "/admin/slideshow",
+    },
+    {
+      title: "Content Blocks",
+      value: stats.contentBlocks,
+      description: "Editable page sections",
+      icon: FileText,
+      href: "/admin/content",
+    },
+    // Row 2: Pending Reviews, Published Reviews, Resources
     {
       title: "Pending Reviews",
       value: stats.pendingTestimonials,
@@ -88,25 +115,11 @@ export default async function AdminDashboard() {
       highlight: stats.pendingTestimonials > 0,
     },
     {
-      title: "Published Stories",
+      title: "Published Reviews",
       value: stats.approvedTestimonials,
       description: "Approved testimonials on website",
       icon: MessageSquare,
       href: "/admin/testimonials",
-    },
-    {
-      title: "Content Blocks",
-      value: stats.contentBlocks,
-      description: "Editable page sections",
-      icon: FileText,
-      href: "/admin/content",
-    },
-    {
-      title: "Slideshow Images",
-      value: stats.slideshowImages,
-      description: "Active homepage slides",
-      icon: Images,
-      href: "/admin/slideshow",
     },
     ...(isAdmin
       ? [
@@ -116,13 +129,6 @@ export default async function AdminDashboard() {
             description: "External links published",
             icon: LinkIcon,
             href: "/admin/resources",
-          },
-          {
-            title: "Staff Users",
-            value: stats.users,
-            description: "Registered admin users",
-            icon: Users,
-            href: "/admin/users",
           },
         ]
       : []),
@@ -135,6 +141,42 @@ export default async function AdminDashboard() {
         <p className="mt-1 text-gray-600">
           Welcome back, {session?.user.name?.split(" ")[0]}
         </p>
+      </div>
+
+      {/* Quick Actions */}
+      <div className="mb-8">
+        <h2 className="text-lg font-semibold text-gray-900">Quick Actions</h2>
+        <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <Link
+            href="/admin/testimonials"
+            className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
+          >
+            <MessageSquare className="h-5 w-5 text-mesa-blue-600" />
+            Review Testimonials
+          </Link>
+          <Link
+            href="/admin/content"
+            className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
+          >
+            <FileText className="h-5 w-5 text-mesa-blue-600" />
+            Edit Page Content
+          </Link>
+          <Link
+            href="/admin/slideshow"
+            className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
+          >
+            <Images className="h-5 w-5 text-mesa-blue-600" />
+            Manage Slideshow
+          </Link>
+          <Link
+            href="/"
+            target="_blank"
+            className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
+          >
+            <ArrowRight className="h-5 w-5 text-mesa-blue-600" />
+            View Live Site
+          </Link>
+        </div>
       </div>
 
       {/* Stats Grid */}
@@ -210,42 +252,6 @@ export default async function AdminDashboard() {
           </div>
         </div>
       )}
-
-      {/* Quick Actions */}
-      <div className="mt-8">
-        <h2 className="text-lg font-semibold text-gray-900">Quick Actions</h2>
-        <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <Link
-            href="/admin/testimonials"
-            className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
-          >
-            <MessageSquare className="h-5 w-5 text-mesa-blue-600" />
-            Review Testimonials
-          </Link>
-          <Link
-            href="/admin/content"
-            className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
-          >
-            <FileText className="h-5 w-5 text-mesa-blue-600" />
-            Edit Page Content
-          </Link>
-          <Link
-            href="/admin/slideshow"
-            className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
-          >
-            <Images className="h-5 w-5 text-mesa-blue-600" />
-            Manage Slideshow
-          </Link>
-          <Link
-            href="/"
-            target="_blank"
-            className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
-          >
-            <ArrowRight className="h-5 w-5 text-mesa-blue-600" />
-            View Live Site
-          </Link>
-        </div>
-      </div>
     </div>
   );
 }
